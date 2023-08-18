@@ -3,10 +3,19 @@
 
 import base64, json
 
-def parse_unencrypted_DRMREQ(request: str):
+def parse_unencrypted_DRMREQ(request: str) -> dict:
 	"""
 	Parses an unencrypted LSTDRM request sent by
-	the browser
+	the browser (sent to the endpoint /lstdrm).
 	"""
-	pass
+	fixed_request = request[::-1][1:]
 
+	# fix padding
+	padding_int = len(fixed_request) % 4
+	
+	if (padding_int == 2):
+		fixed_request += "=="
+	elif (padding_int == 3):
+		fixed_request += "="
+
+	return json.loads(base64.b64decode(fixed_request.encode()))
