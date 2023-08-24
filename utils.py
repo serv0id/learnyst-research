@@ -3,9 +3,9 @@
 
 import base64, json
 
-def parse_unencrypted_DRMREQ(request: str) -> dict:
+def parse_envelope_DRMREQ(request: str) -> dict:
 	"""
-	Parses an unencrypted LSTDRM request sent by
+	Parses the outer envelope of the LSTDRM request sent by
 	the browser (sent to the endpoint /lstdrm).
 	"""
 	fixed_request = request[::-1][1:]
@@ -19,3 +19,4 @@ def parse_unencrypted_DRMREQ(request: str) -> dict:
 		fixed_request += "="
 
 	return json.loads(base64.b64decode(fixed_request.encode()))
+
