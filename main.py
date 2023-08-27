@@ -2,12 +2,14 @@
 
 import sys, json, base64
 import click
-import loguru
+from loguru import logger
 import config
 import v2.core
 
+@logger.catch
 def main() -> None:
-	pass
+	logger.info("Loaded..")
+	
 	
 if __name__ == "__main__":
 	main()
