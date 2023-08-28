@@ -1,10 +1,13 @@
 # https://github.com/serv0id/learnyst-research
+from enum import Enum
 
-
+# Enums
+class EncAlgo(Enum):
+	NONE = 1
+	AES = 2
+	
 # API Paths
 V2_URL = ''
-V4_URL = ''
-V6_URL = ''
 
 # Secrets
 INIT_AES_KEY = '2B735516481ED5361BF775AAC9CF2F31'

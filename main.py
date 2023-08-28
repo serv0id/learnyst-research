@@ -3,7 +3,6 @@
 import sys, json, base64
 import click
 from loguru import logger
-import config
 import v2.core
 
 @logger.catch
