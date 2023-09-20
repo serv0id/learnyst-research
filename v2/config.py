@@ -7,7 +7,9 @@ class EncAlgo(Enum):
 	AES = 2
 	
 # API Paths
-V2_URL = ''
+V2_LSTDRM_URL = 'https://drm-u.learnyst.com/drmv2/lstdrm'
+V2_WIDEVINE_URL = 'https://drm-u.learnyst.com/drmv2/lgdrm'
+V2_PLAYREADY_URL = 'https://drm-u.learnyst.com/drmv2/playready' # taken from edge
 
 # Secrets
 INIT_AES_KEY = '2B735516481ED5361BF775AAC9CF2F31'
