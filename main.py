@@ -5,10 +5,11 @@ import click
 from loguru import logger
 import v2.core
 
+
 @logger.catch
 def main() -> None:
-	logger.info("Loaded..")
-	
-	
+    logger.info("Loaded..")
+
+
 if __name__ == "__main__":
-	main()
+    main()
