@@ -36,6 +36,23 @@ def get_signed_url(request: bytes) -> bytes:
     to be sent to learnyst servers to obtain a Signed URL 
     for content playback.
     """
-    cipher = AES.new(cfg.INIT_AES_KEY, AES.MODE_CTR, cfg.INIT_AES_IV)
+    cipher = AES.new(cfg.SIGNED_URL_KEY,
+                     AES.MODE_CTR,
+                     initial_value=cfg.SIGNED_URL_IV,
+                     nonce=b'')
 
     return base64.b64encode(cipher.encrypt(request))
+
+
+def decrypt_signed_url(request: str) -> dict:
+    """
+    Decrypt a Base64 string sent to the Signed URL endpoint
+    for information gatherning.
+    """
+    cipher = AES.new(cfg.SIGNED_URL_KEY,
+                     AES.MODE_CTR,
+                     initial_value=cfg.SIGNED_URL_IV,
+                     nonce=b'')
+
+    plain = cipher.decrypt(base64.b64decode(request.encode()))
+    return json.loads(plain)
