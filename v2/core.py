@@ -1,12 +1,7 @@
 # https://github.com/serv0id/learnyst-research
-import base64
-import json
-from typing import Union
-
-from loguru import logger
 
 from v2.config import *
-from .. import utils
+from . import utils
 
 
 class V2Base(object):
